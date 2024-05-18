@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>service worker</title>
+</head>
+<body>
+    <!-- <script src="https://script.google.com/macros/s/AKfycbzKGxtEYp6JmnBtP3OaIRJ58J2uP4QjN1ksjmeAhFZz2T9OQSI0NLqm7WLQ0vb9c8-i/exec?file=mod.js"></script> -->
+    <!-- <script src="app.js"></script> -->
+    <!-- <script src="sw.js"></script> -->
+    <script>
+    if('serviceWorker' in navigator){
+        window.addEventListener('load', ()=> {
+          //registering of serviceWorker.
+        navigator.serviceWorker.register('data:text/javascript;base64,' + btoa(`
+        // Service Worker Content
+
+        self.addEventListener('install', (event) => {
+          console.log('Service Worker installed');
+        });
+
+        self.addEventListener('activate', (event) => {
+          console.log('Service Worker activated');
+        });
+
+        self.addEventListener('fetch', (event) => {
+          console.log('Service Worker intercepted a fetch:', event.request.url);
+        });
+      `))
+        .then((reg)=> console.log("Success:", reg.scope))
+        .catch((err)=> console.log("Failure: ", err));
+        })}
+    </script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Template web component</title>
+</head>
+<body>
+    <h1>Web component: template</h1>
+
+    <todo-item checked="true">
+        Item One
+        <span slot="small">small text</span>
+    </todo-item>
+    <todo-item checked="true">
+        Item Two
+        <span slot="small">another tag</span>
+    </todo-item>
+    <todo-item checked="flase">Item Three</todo-item>
+    <script src="index.js"></script>
+</body>
+</html>
